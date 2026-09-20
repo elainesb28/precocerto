@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configurações — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="configuracoes" data-title="Configurações">
+
+<div class="shell">
+  <div class="main">
+    <main class="page">
+      <section class="page__head">
+        <h1>Configurações</h1>
+        <p>Seus dados ficam guardados apenas neste navegador. Você manda neles.</p>
+      </section>
+
+      <div class="settings-grid">
+        <article class="card">
+          <h2 style="font-size: 1.12rem; margin-bottom: 18px;">Seus dados</h2>
+
+          <form id="profile-form" novalidate style="display: grid; gap: 16px;">
+            <div class="field">
+              <label for="set-nome">Nome</label>
+              <input class="input" type="text" id="set-nome" autocomplete="name">
+              <p class="error-msg" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="set-email">E-mail</label>
+              <input class="input" type="email" id="set-email" autocomplete="email">
+              <p class="error-msg" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="set-tipo">Como você usa o PreçoCerto</label>
+              <select class="select" id="set-tipo">
+                <option value="profissional">💼  Uso profissional</option>
+                <option value="pessoal">🌱  Uso pessoal</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="set-horas">Horas de trabalho por mês</label>
+              <input class="input" type="text" inputmode="numeric" id="set-horas" placeholder="160">
+              <p class="hint">Usada como valor inicial da calculadora.</p>
+              <p class="error-msg" aria-live="polite"></p>
+            </div>
+
+            <button class="btn btn--primary" type="submit">Salvar alterações</button>
+          </form>
+        </article>
+
+        <div class="panel">
+          <article class="card">
+            <h2 style="font-size: 1.12rem; margin-bottom: 10px;">O que está guardado</h2>
+            <div class="kv" id="storage-summary"></div>
+          </article>
+
+          <article class="card danger-zone">
+            <h2>Zona de risco</h2>
+            <p class="muted" style="font-size: 0.9rem; margin: 8px 0 18px;">
+              As duas ações abaixo são definitivas. Não há como desfazer.
+            </p>
+            <div class="stack">
+              <button class="btn btn--ghost btn--block" type="button" id="clear-history">Limpar histórico de cálculos</button>
+              <button class="btn btn--danger btn--block" type="button" id="clear-all">Apagar todos os meus dados</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

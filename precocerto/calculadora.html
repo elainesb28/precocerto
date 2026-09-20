@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/calculator.css">
+</head>
+<body data-page="calculadora" data-title="Calculadora">
+
+<div class="shell">
+  <div class="main">
+    <main class="page">
+      <section class="page__head">
+        <h1>Calculadora de preços</h1>
+        <p>Conte para nós como funciona seu serviço e vamos descobrir um preço justo.</p>
+      </section>
+
+      <div class="calc-layout">
+        <form class="calc-form" id="calc-form" novalidate>
+          <!-- BLOCO 1 -->
+          <fieldset class="block">
+            <legend class="sr-only">Sobre seu serviço</legend>
+            <div class="block__head">
+              <span class="block__num block__num--1" aria-hidden="true">1</span>
+              <div>
+                <h2>Sobre seu serviço</h2>
+                <p>Como você chamaria esse trabalho na conversa com um cliente?</p>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="nome">Nome do serviço</label>
+                <input class="input" type="text" id="nome" name="nome" placeholder="Ex.: Design de logo" required>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="categoria">Categoria</label>
+                <select class="select" id="categoria" name="categoria"></select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- BLOCO 2 -->
+          <fieldset class="block">
+            <legend class="sr-only">Seus custos</legend>
+            <div class="block__head">
+              <span class="block__num block__num--2" aria-hidden="true">2</span>
+              <div>
+                <h2>Seus custos</h2>
+                <p>Tudo que sai do seu bolso para entregar esse serviço.</p>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="materiais">Materiais e ferramentas</label>
+                <div class="input-money">
+                  <span class="prefix" aria-hidden="true">R$</span>
+                  <input class="input" type="text" inputmode="decimal" id="materiais" name="materiais" placeholder="0,00">
+                </div>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="deslocamento">Deslocamento</label>
+                <div class="input-money">
+                  <span class="prefix" aria-hidden="true">R$</span>
+                  <input class="input" type="text" inputmode="decimal" id="deslocamento" name="deslocamento" placeholder="0,00">
+                </div>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="outros">Outros custos</label>
+                <div class="input-money">
+                  <span class="prefix" aria-hidden="true">R$</span>
+                  <input class="input" type="text" inputmode="decimal" id="outros" name="outros" placeholder="0,00">
+                </div>
+                <p class="hint">Softwares, taxas de plataforma, embalagem, impostos.</p>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+
+              <div class="live-cost">
+                <span>Custo total do serviço</span>
+                <strong id="live-cost">R$ 0,00</strong>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- BLOCO 3 -->
+          <fieldset class="block">
+            <legend class="sr-only">Seu tempo</legend>
+            <div class="block__head">
+              <span class="block__num block__num--3" aria-hidden="true">3</span>
+              <div>
+                <h2>Seu tempo</h2>
+                <p>Inclua também o tempo de planejamento, revisões e conversas.</p>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="horas">Horas necessárias para realizar o serviço</label>
+                <div class="input-money has-suffix">
+                  <input class="input" type="text" inputmode="decimal" id="horas" name="horas" placeholder="5" style="padding-left: 15px;" required>
+                  <span class="suffix" aria-hidden="true">horas</span>
+                </div>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="horasMes">Horas que você trabalha por mês</label>
+                <div class="input-money has-suffix">
+                  <input class="input" type="text" inputmode="decimal" id="horasMes" name="horasMes" placeholder="160" style="padding-left: 15px;">
+                  <span class="suffix" aria-hidden="true">horas</span>
+                </div>
+                <p class="hint">Deixe 160 se trabalha em tempo integral.</p>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- BLOCO 4 -->
+          <fieldset class="block">
+            <legend class="sr-only">Seu objetivo</legend>
+            <div class="block__head">
+              <span class="block__num block__num--4" aria-hidden="true">4</span>
+              <div>
+                <h2>Seu objetivo</h2>
+                <p>Quanto você precisa que o mês renda para viver do seu trabalho.</p>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="metaMensal">Quanto deseja ganhar por mês?</label>
+                <div class="input-money">
+                  <span class="prefix" aria-hidden="true">R$</span>
+                  <input class="input" type="text" inputmode="decimal" id="metaMensal" name="metaMensal" placeholder="3.500,00" required>
+                </div>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="servicosMes">Serviços que pretende fazer por mês</label>
+                <input class="input" type="text" inputmode="numeric" id="servicosMes" name="servicosMes" placeholder="8">
+                <p class="hint">Opcional. Ajuda a saber quanto cada serviço precisa render.</p>
+                <p class="error-msg" aria-live="polite"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- BLOCO 5 -->
+          <fieldset class="block">
+            <legend class="sr-only">Seu preço atual</legend>
+            <div class="block__head">
+              <span class="block__num block__num--5" aria-hidden="true">5</span>
+              <div>
+                <h2>Seu preço atual</h2>
+                <p>Opcional. Serve para comparar o que você cobra hoje com o resultado.</p>
+              </div>
+            </div>
+
+            <div class="field" style="max-width: 320px;">
+              <label for="precoAtual">Quanto você cobra atualmente?</label>
+              <div class="input-money">
+                <span class="prefix" aria-hidden="true">R$</span>
+                <input class="input" type="text" inputmode="decimal" id="precoAtual" name="precoAtual" placeholder="0,00">
+              </div>
+              <p class="error-msg" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <div class="calc-submit">
+            <p>Nenhum dado sai do seu navegador. Você pode refazer o cálculo quantas vezes quiser.</p>
+            <button class="btn btn--primary" type="submit">✨ Calcular meu preço</button>
+          </div>
+        </form>
+
+        <aside class="calc-aside">
+          <div class="aside-card aside-card--accent">
+            <h3>Quanto mais detalhes, mais preciso o resultado</h3>
+            <p>Custos esquecidos aparecem depois como prejuízo. Vale listar até os pequenos.</p>
+          </div>
+
+          <div class="aside-card">
+            <h3>O que entra na conta</h3>
+            <ul class="aside-list">
+              <li><span aria-hidden="true">🧾</span> Seus custos diretos</li>
+              <li><span aria-hidden="true">⏱️</span> O valor das suas horas</li>
+              <li><span aria-hidden="true">🎯</span> Sua meta de faturamento</li>
+              <li><span aria-hidden="true">🛟</span> Uma reserva para imprevistos</li>
+            </ul>
+          </div>
+
+          <div data-tip></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/calculator.js"></script>
+</body>
+</html>

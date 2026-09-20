@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relatórios — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="relatorios" data-title="Relatórios">
+
+<div class="shell">
+  <div class="main">
+    <main class="page">
+      <section class="page__head">
+        <h1>Relatórios</h1>
+        <p>Um panorama dos seus números, montado a partir dos serviços e cálculos salvos.</p>
+      </section>
+
+      <div id="reports-content" hidden>
+        <section class="stats" style="margin-bottom: 24px;">
+          <article class="stat">
+            <div class="stat__icon" style="background: var(--tint-secondary);" aria-hidden="true">📦</div>
+            <div class="stat__value" id="rep-servicos">0</div>
+            <div class="stat__label">Serviços cadastrados</div>
+          </article>
+          <article class="stat">
+            <div class="stat__icon" style="background: var(--tint-primary);" aria-hidden="true">🧮</div>
+            <div class="stat__value" id="rep-calculos">0</div>
+            <div class="stat__label">Cálculos realizados</div>
+          </article>
+          <article class="stat">
+            <div class="stat__icon" style="background: var(--tint-success);" aria-hidden="true">📈</div>
+            <div class="stat__value" id="rep-media">R$ 0,00</div>
+            <div class="stat__label">Preço recomendado médio</div>
+          </article>
+          <article class="stat">
+            <div class="stat__icon" style="background: var(--tint-warning);" aria-hidden="true">⏱️</div>
+            <div class="stat__value" id="rep-hora">R$ 0,00</div>
+            <div class="stat__label">Ganho médio por hora</div>
+          </article>
+        </section>
+
+        <section class="cols">
+          <article class="card chart-card">
+            <div class="panel__head">
+              <h2 style="font-size: 1.12rem;">Preço recomendado por serviço</h2>
+            </div>
+            <div class="bars" id="chart-prices"></div>
+          </article>
+
+          <article class="card chart-card">
+            <div class="panel__head">
+              <h2 style="font-size: 1.12rem;">Distribuição por categoria</h2>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut" id="donut" role="img" aria-label="Gráfico de distribuição dos serviços por categoria">
+                <div class="donut__hole">
+                  <strong id="donut-total">0</strong>
+                  <span>serviços</span>
+                </div>
+              </div>
+              <ul class="legend" id="donut-legend"></ul>
+            </div>
+          </article>
+        </section>
+
+        <section class="card chart-card" style="margin-top: 20px;">
+          <h2 style="font-size: 1.12rem;">Destaques</h2>
+          <div class="highlight-rows" id="report-highlights"></div>
+        </section>
+      </div>
+
+      <section id="reports-empty" hidden>
+        <div class="empty">
+          <div class="empty__emoji" aria-hidden="true">📊</div>
+          <h3>Ainda não há números para analisar.</h3>
+          <p>Cadastre pelo menos um serviço para ver seus relatórios aqui.</p>
+          <a class="btn btn--primary" href="calculadora.html">Calcular meu primeiro serviço</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/reports.js"></script>
+</body>
+</html>

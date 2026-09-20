@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resultado — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/result.css">
+</head>
+<body data-page="calculadora" data-title="Resultado do cálculo">
+
+<div class="shell">
+  <div class="main">
+    <main class="page" id="result-page" hidden>
+      <section class="result-hero" id="result-hero">
+        <h1>🎉 Temos um resultado!</h1>
+        <p id="result-service">Seu preço ideal para este serviço é:</p>
+        <div class="result-hero__price" id="price-reco">R$ 0,00</div>
+        <span class="badge" id="price-tagline">Equilíbrio entre custo, tempo e lucro</span>
+
+        <div class="result-hero__meta">
+          <span class="badge" id="meta-custo">Custo: R$ 0,00</span>
+          <span class="badge" id="meta-horas">0 horas</span>
+          <span class="badge" id="meta-hora">Ganho por hora: R$ 0,00</span>
+        </div>
+      </section>
+
+      <section>
+        <div class="page__head" style="margin-bottom: 16px;">
+          <h2>Mas você também tem outras possibilidades.</h2>
+          <p>Três faixas para três estratégias diferentes de negociação.</p>
+        </div>
+
+        <div class="tiers">
+          <article class="tier tier--min">
+            <span class="tier__name">🟢 Preço mínimo</span>
+            <span class="tier__value" id="tier-min">R$ 0,00</span>
+            <p>Para manter sua rentabilidade mínima. Abaixo disso o serviço começa a pesar no seu bolso.</p>
+          </article>
+
+          <article class="tier tier--reco">
+            <span class="tier__flag">Mais equilibrado</span>
+            <span class="tier__name">🔵 Preço recomendado</span>
+            <span class="tier__value" id="tier-reco">R$ 0,00</span>
+            <p>Equilíbrio entre custo, tempo e lucro. É o valor que sustenta sua meta do mês.</p>
+          </article>
+
+          <article class="tier tier--premium">
+            <span class="tier__name">🟣 Preço premium</span>
+            <span class="tier__value" id="tier-premium">R$ 0,00</span>
+            <p>Para uma estratégia de maior valor percebido: urgência, exclusividade ou escopo ampliado.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cols">
+        <!-- Por que esse valor -->
+        <article class="card">
+          <h2 style="font-size: 1.12rem; margin-bottom: 16px;">Por que esse valor?</h2>
+          <ul class="why-list" id="why-list"></ul>
+        </article>
+
+        <!-- Simulador -->
+        <article class="card sim">
+          <div>
+            <h2 style="font-size: 1.12rem;">E se você cobrasse outro valor?</h2>
+            <p class="muted" style="font-size: 0.9rem; margin-top: 6px;">Mexa no valor ou na margem e veja o efeito na hora.</p>
+          </div>
+
+          <div class="sim__row">
+            <div class="field">
+              <label for="sim-price">Valor simulado</label>
+              <div class="input-money">
+                <span class="prefix" aria-hidden="true">R$</span>
+                <input class="input" type="text" inputmode="decimal" id="sim-price" value="0">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="sim-margin">Escolha sua margem: <strong id="margin-label">30%</strong></label>
+              <input class="slider" type="range" id="sim-margin" min="10" max="50" step="1" value="30"
+                     aria-valuemin="10" aria-valuemax="50" aria-valuenow="30" aria-label="Margem desejada em porcentagem">
+              <div class="slider-scale" aria-hidden="true"><span>10%</span><span>50%</span></div>
+            </div>
+          </div>
+
+          <div class="sim-out">
+            <div>
+              <span>Lucro estimado</span>
+              <strong id="sim-profit">R$ 0,00</strong>
+            </div>
+            <div>
+              <span>Ganho por hora</span>
+              <strong id="sim-hour">R$ 0,00</strong>
+            </div>
+            <div>
+              <span>Margem sobre a base</span>
+              <strong id="sim-margin-out">0%</strong>
+            </div>
+          </div>
+
+          <p class="sim-verdict" id="sim-verdict">Mova o valor para comparar com as faixas calculadas.</p>
+        </article>
+      </section>
+
+      <!-- Comparação com o preço atual -->
+      <section class="card compare" id="compare-box" hidden>
+        <div>
+          <h2 style="font-size: 1.12rem;">Comparando com o que você cobra hoje</h2>
+          <p class="muted" style="font-size: 0.9rem; margin-top: 6px;">As barras estão na mesma escala, para você ver a distância entre os valores.</p>
+        </div>
+        <div class="compare__bars" id="compare-bars"></div>
+        <p class="compare__note" id="compare-note"></p>
+      </section>
+
+      <section class="result-actions">
+        <button class="btn btn--primary" type="button" id="save-service">📦 Salvar como serviço</button>
+        <a class="btn btn--ghost" href="calculadora.html">Fazer outro cálculo</a>
+        <a class="btn btn--ghost" href="historico.html">Ver histórico</a>
+      </section>
+    </main>
+
+    <!-- Estado de cálculo inexistente -->
+    <main class="page" id="result-missing" hidden>
+      <div class="empty">
+        <div class="empty__emoji" aria-hidden="true">🧮</div>
+        <h3>Não encontramos esse cálculo.</h3>
+        <p>Ele pode ter sido apagado do histórico. Faça um novo cálculo para ver o resultado aqui.</p>
+        <a class="btn btn--primary" href="calculadora.html">Calcular agora</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/result.js"></script>
+</body>
+</html>
