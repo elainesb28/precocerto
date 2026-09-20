@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Início — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="inicio" data-title="Início">
+
+<div class="shell">
+  <!-- a sidebar é montada por js/shell.js -->
+  <div class="main">
+    <main class="page">
+      <section class="page__head">
+        <h1 id="greeting">Olá! 👋</h1>
+        <p id="greeting-sub">Pronto para descobrir o valor do seu próximo serviço?</p>
+      </section>
+
+      <section class="banner">
+        <div>
+          <h2>Seu potencial de lucro é maior do que você imagina!</h2>
+          <p>Informe custos, tempo e meta do mês. Em menos de três minutos você tem três faixas de preço para escolher.</p>
+          <a class="btn btn--ghost-light" href="calculadora.html">Calcular agora →</a>
+        </div>
+        <span class="banner__spark banner__spark--a" aria-hidden="true">✨</span>
+        <span class="banner__spark banner__spark--b" aria-hidden="true">💡</span>
+
+        <div class="banner__art" aria-hidden="true">
+          <svg viewBox="0 0 220 170" width="220" height="170" role="presentation">
+            <rect x="18" y="26" width="184" height="116" rx="20" fill="rgba(255,255,255,0.16)"/>
+            <rect x="36" y="46" width="90" height="12" rx="6" fill="rgba(255,255,255,0.55)"/>
+            <rect x="36" y="68" width="60" height="12" rx="6" fill="rgba(255,255,255,0.35)"/>
+            <rect x="36" y="98" width="20" height="26" rx="6" fill="#67E8F9"/>
+            <rect x="64" y="86" width="20" height="38" rx="6" fill="#A5B4FC"/>
+            <rect x="92" y="72" width="20" height="52" rx="6" fill="#FDE68A"/>
+            <rect x="120" y="56" width="20" height="68" rx="6" fill="#FFFFFF"/>
+            <circle cx="172" cy="80" r="24" fill="#FDE68A"/>
+            <text x="172" y="90" text-anchor="middle" font-size="24" font-weight="800" fill="#7C3AED" font-family="Plus Jakarta Sans, sans-serif">$</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Resumo da sua conta">
+        <article class="stat">
+          <div class="stat__icon" style="background: var(--tint-success);" aria-hidden="true">💰</div>
+          <div class="stat__value" id="stat-lucro">R$ 0,00</div>
+          <div class="stat__label">Lucro estimado nos seus serviços</div>
+        </article>
+
+        <article class="stat">
+          <div class="stat__icon" style="background: var(--tint-secondary);" aria-hidden="true">📦</div>
+          <div class="stat__value" id="stat-servicos">0</div>
+          <div class="stat__label">Serviços cadastrados</div>
+        </article>
+
+        <article class="stat">
+          <div class="stat__icon" style="background: var(--tint-primary);" aria-hidden="true">🧮</div>
+          <div class="stat__value" id="stat-calculos">0</div>
+          <div class="stat__label">Cálculos realizados</div>
+        </article>
+
+        <article class="stat">
+          <div class="stat__icon" style="background: var(--tint-warning);" aria-hidden="true">📈</div>
+          <div class="stat__value" id="stat-media">R$ 0,00</div>
+          <div class="stat__label">Preço recomendado médio</div>
+        </article>
+      </section>
+
+      <div data-tip></div>
+
+      <section class="cols">
+        <div class="panel">
+          <div class="panel__head">
+            <h2>Seus serviços recentes</h2>
+            <a class="link-more" href="servicos.html">Ver todos</a>
+          </div>
+          <div id="recent-services"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__head">
+            <h2>Últimos cálculos</h2>
+            <a class="link-more" href="historico.html">Ver histórico</a>
+          </div>
+          <div id="recent-history"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

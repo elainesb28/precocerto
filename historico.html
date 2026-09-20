@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Histórico — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="historico" data-title="Histórico">
+
+<div class="shell">
+  <div class="main">
+    <main class="page">
+      <section class="page__head page__head-row">
+        <div class="page__head">
+          <h1>Histórico de cálculos</h1>
+          <p id="history-count">Cada cálculo que você fez fica registrado aqui.</p>
+        </div>
+        <a class="btn btn--primary" href="calculadora.html">🧮 Novo cálculo</a>
+      </section>
+
+      <section class="filters" id="history-filters" hidden>
+        <label class="sr-only" for="filter-service">Filtrar por serviço</label>
+        <select class="select" id="filter-service">
+          <option value="">Todos os serviços</option>
+        </select>
+      </section>
+
+      <section id="history-container"></section>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/history.js"></script>
+</body>
+</html>

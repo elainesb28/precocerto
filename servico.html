@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detalhes do serviço — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/result.css">
+</head>
+<body data-page="servicos" data-title="Detalhes do serviço">
+
+<div class="shell">
+  <div class="main">
+    <main class="page" id="detail-page" hidden>
+      <section class="page__head page__head-row">
+        <div class="detail-head">
+          <span class="detail-head__icon" id="detail-icon" aria-hidden="true">✨</span>
+          <div>
+            <h1 id="detail-name">Serviço</h1>
+            <p class="muted" id="detail-meta">Categoria</p>
+          </div>
+        </div>
+        <a class="btn btn--ghost btn--sm" href="servicos.html">← Todos os serviços</a>
+      </section>
+
+      <section class="tiers">
+        <article class="tier tier--min">
+          <span class="tier__name">🟢 Preço mínimo</span>
+          <span class="tier__value" id="detail-min">R$ 0,00</span>
+          <p>Rentabilidade mínima para este cenário.</p>
+        </article>
+        <article class="tier tier--reco">
+          <span class="tier__flag">Recomendado</span>
+          <span class="tier__name">🔵 Preço recomendado</span>
+          <span class="tier__value" id="detail-reco">R$ 0,00</span>
+          <p>Equilíbrio entre custo, tempo e lucro.</p>
+        </article>
+        <article class="tier tier--premium">
+          <span class="tier__name">🟣 Preço premium</span>
+          <span class="tier__value" id="detail-premium">R$ 0,00</span>
+          <p>Maior valor percebido.</p>
+        </article>
+      </section>
+
+      <section class="detail-grid">
+        <article class="card">
+          <h2 style="font-size: 1.12rem; margin-bottom: 16px;">Resumo do cálculo</h2>
+          <div class="kv" id="detail-kv"></div>
+        </article>
+
+        <div class="panel">
+          <article class="card">
+            <h2 style="font-size: 1.12rem; margin-bottom: 16px;">O que fazer agora</h2>
+            <div class="stack">
+              <a class="btn btn--primary btn--block" id="recalc" href="calculadora.html">🧮 Calcular novamente</a>
+              <button class="btn btn--soft btn--block" type="button" id="quote">📄 Gerar orçamento</button>
+              <button class="btn btn--ghost btn--block" type="button" id="delete-service">🗑️ Excluir serviço</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2 style="font-size: 1.12rem; margin-bottom: 16px;">Histórico de cálculos</h2>
+            <ul class="mini-timeline" id="detail-timeline"></ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <main class="page" id="detail-missing" hidden>
+      <div class="empty">
+        <div class="empty__emoji" aria-hidden="true">🔍</div>
+        <h3>Não encontramos esse serviço.</h3>
+        <p>Ele pode ter sido excluído. Volte para a lista ou cadastre um novo.</p>
+        <a class="btn btn--primary" href="servicos.html">Ver meus serviços</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/service-detail.js"></script>
+</body>
+</html>

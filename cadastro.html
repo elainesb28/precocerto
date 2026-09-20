@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vamos começar — PreçoCerto</title>
+<meta name="description" content="Cadastro rápido em três etapas para começar a usar o PreçoCerto.">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body class="onboard-page">
+
+<main class="onboard">
+  <section class="onboard__panel">
+    <div class="onboard__card">
+      <a class="onboard__back" href="index.html">← Voltar para o início</a>
+
+      <div class="progress" role="progressbar" aria-label="Progresso do cadastro" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
+        <div class="progress__bar" id="progress-bar"></div>
+      </div>
+
+      <form id="onboard-form" novalidate>
+        <!-- Etapa 1 -->
+        <div class="step-panel is-active" data-step="1">
+          <h1>Vamos começar? 🚀</h1>
+          <p>Antes de calcular, queremos conhecer você.</p>
+
+          <div class="field">
+            <label for="nome">Qual é o seu nome?</label>
+            <input class="input" type="text" id="nome" name="nome" placeholder="Ex.: Maria Silva" autocomplete="name" required>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="button" data-next="1">Continuar →</button>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="step-panel" data-step="2">
+          <h1>Prazer, <span id="hello-name">você</span>! 👋</h1>
+          <p>Qual é o seu melhor e-mail?</p>
+
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input class="input" type="email" id="email" name="email" placeholder="seuemail@email.com" autocomplete="email" required>
+            <p class="hint">Usamos apenas para personalizar sua experiência. Nada sai deste navegador.</p>
+            <p class="error-msg" aria-live="polite"></p>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="button" data-next="2">Continuar →</button>
+          <button class="btn btn--ghost btn--block" type="button" data-back="2">← Voltar</button>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="step-panel" data-step="3">
+          <h1>Como você pretende usar o PreçoCerto?</h1>
+          <p>Isso ajuda a ajustar a linguagem e as dicas que você vai receber.</p>
+
+          <div class="choice-grid" role="group" aria-label="Tipo de uso">
+            <button class="choice" type="button" data-choice="profissional" aria-pressed="false">
+              <span class="choice__emoji" aria-hidden="true">💼</span>
+              <strong>Uso profissional</strong>
+              <span>Para meu trabalho ou negócio</span>
+            </button>
+
+            <button class="choice" type="button" data-choice="pessoal" aria-pressed="false">
+              <span class="choice__emoji" aria-hidden="true">🌱</span>
+              <strong>Uso pessoal</strong>
+              <span>Para projetos pessoais e hobbies</span>
+            </button>
+          </div>
+          <p class="error-msg" id="choice-error" aria-live="polite"></p>
+
+          <button class="btn btn--primary btn--block" type="button" data-next="3">Continuar →</button>
+          <button class="btn btn--ghost btn--block" type="button" data-back="3">← Voltar</button>
+        </div>
+
+        <!-- Conclusão -->
+        <div class="step-panel" data-step="4">
+          <div class="done-mark" aria-hidden="true">🎉</div>
+          <h1>Pronto! Vamos descobrir seu preço. ✨</h1>
+          <p>Tudo salvo. A partir de agora o PreçoCerto chama você pelo nome.</p>
+          <button class="btn btn--primary btn--block" type="button" id="finish">Entrar no PreçoCerto →</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <aside class="onboard__aside" aria-hidden="true">
+    <span class="blob blob--a"></span>
+    <span class="blob blob--b"></span>
+    <span class="blob blob--c"></span>
+
+    <div class="onboard__aside-inner">
+      <p class="handwritten">Fico feliz em te ver por aqui!</p>
+
+      <svg viewBox="0 0 260 260" width="260" height="260" role="img" aria-label="Foguete decolando entre estrelas">
+        <defs>
+          <linearGradient id="g-rocket" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7C3AED"/>
+            <stop offset="100%" stop-color="#2563EB"/>
+          </linearGradient>
+        </defs>
+        <path d="M130 26c30 24 44 60 44 96l-20 26h-48l-20-26c0-36 14-72 44-96z" fill="#FFFFFF" stroke="#172033" stroke-width="5" stroke-linejoin="round"/>
+        <circle cx="130" cy="104" r="20" fill="url(#g-rocket)"/>
+        <path d="M86 138l-24 26 30-2z" fill="#EC4899"/>
+        <path d="M174 138l24 26-30-2z" fill="#EC4899"/>
+        <path d="M112 148h36l-6 34h-24z" fill="#F59E0B"/>
+        <path d="M118 188c4 16 8 24 12 30 4-6 8-14 12-30z" fill="#EF4444"/>
+        <circle cx="42" cy="70" r="7" fill="#F59E0B"/>
+        <circle cx="216" cy="56" r="5" fill="#06B6D4"/>
+        <circle cx="228" cy="176" r="9" fill="#A78BFA"/>
+        <path d="M40 200l6 12 12 6-12 6-6 12-6-12-12-6 12-6z" fill="#F59E0B"/>
+      </svg>
+
+      <p>Prepare-se para descobrir como cobrar o valor certo e fazer seu trabalho render mais.</p>
+    </div>
+  </aside>
+</main>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/onboarding.js"></script>
+</body>
+</html>

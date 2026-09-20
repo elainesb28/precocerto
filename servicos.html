@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meus serviços — PreçoCerto</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="servicos" data-title="Meus serviços">
+
+<div class="shell">
+  <div class="main">
+    <main class="page">
+      <section class="page__head page__head-row">
+        <div class="page__head">
+          <h1>Meus serviços</h1>
+          <p id="services-count">Aqui ficam os serviços que você já precificou.</p>
+        </div>
+        <a class="btn btn--primary" href="calculadora.html">+ Novo serviço</a>
+      </section>
+
+      <section class="filters" id="services-filters" hidden>
+        <label class="sr-only" for="filter-category">Filtrar por categoria</label>
+        <select class="select" id="filter-category">
+          <option value="">Todas as categorias</option>
+        </select>
+
+        <label class="sr-only" for="sort-services">Ordenar</label>
+        <select class="select" id="sort-services">
+          <option value="recentes">Mais recentes primeiro</option>
+          <option value="maior">Maior preço recomendado</option>
+          <option value="menor">Menor preço recomendado</option>
+          <option value="nome">Nome (A–Z)</option>
+        </select>
+      </section>
+
+      <section id="services-container"></section>
+
+      <div data-tip></div>
+    </main>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/services.js"></script>
+</body>
+</html>
